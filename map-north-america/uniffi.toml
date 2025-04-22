@@ -1,0 +1,6 @@
+[bindings.kotlin]
+package_name = "org.example.mapna"
+cdylib_name = "map_na"
+
+# [bindings.kotlin.external_packages]
+# countries = "org.example.countries"
