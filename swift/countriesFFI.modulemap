@@ -1,0 +1,4 @@
+module countriesFFI {
+    header "countriesFFI.h"
+    export *
+}

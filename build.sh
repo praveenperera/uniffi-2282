@@ -7,7 +7,11 @@ rustup default 1.84.1
 cd ./map-north-america/
 
 # Build the Rust library
-cargo build --release --target aarch64-apple-darwin
+cargo build --profile release-smaller --target aarch64-apple-darwin
 
 # Generate Kotlin bindings using uniffi-bindgen
-cargo run --bin uniffi-bindgen generate --library ./target/aarch64-apple-darwin/release/libmap_na.dylib --language kotlin --out-dir ../ --no-format
+cargo run --bin uniffi-bindgen generate --library ./target/aarch64-apple-darwin/release-smaller/libmap_na.dylib --language kotlin --out-dir ../ --no-format
+
+# Swift
+mkdir -p ../swift
+cargo run --bin uniffi-bindgen generate --library ./target/aarch64-apple-darwin/release-smaller/libmap_na.a --language swift --out-dir ../swift --no-format

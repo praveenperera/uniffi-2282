@@ -1,0 +1,4 @@
+module map_naFFI {
+    header "map_naFFI.h"
+    export *
+}
