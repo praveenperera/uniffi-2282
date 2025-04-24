@@ -1,4 +1,4 @@
-use countries::{hello_canada, NorthAmericanCountries};
+use countries_import::{hello_canada, NorthAmericanCountries};
 
 uniffi::setup_scaffolding!("map_na");
 
@@ -12,17 +12,18 @@ pub struct Travel {
 impl Travel {
     #[uniffi::constructor]
     pub fn new(date: String, country: NorthAmericanCountries) -> Self {
-        Travel {
-            date,
-            country,
-        }
+        Travel { date, country }
     }
 
     pub fn hello(&self) -> String {
         match self.country {
             NorthAmericanCountries::Canada => hello_canada(),
-            NorthAmericanCountries::UnitedStates => "It's all right but you should travel to Canada instead!".to_string(),
-            NorthAmericanCountries::Mexico => "It's too hot you should probably travel to Canada instead!".to_string(),
+            NorthAmericanCountries::UnitedStates => {
+                "It's all right but you should travel to Canada instead!".to_string()
+            }
+            NorthAmericanCountries::Mexico => {
+                "It's too hot you should probably travel to Canada instead!".to_string()
+            }
         }
     }
 
